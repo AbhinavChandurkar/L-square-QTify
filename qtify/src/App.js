@@ -2,21 +2,29 @@ import "./App.css";
 import HeroSection from "./components/HeroSection/HeroSection";
 import Navbar from "./components/Navbar/Navbar";
 import Card from "./components/Card/Card";
+import { useEffect, useState } from "react";
+import { fetchTopAlbum } from "./api/api";
 
 function App() {
-  //Mock data to show the card created
+  const [topAlbumData, setTopAlbumData] = useState([]);
 
-  const data = {
-    image: "card-image.png",
-    follow: 100,
-    name: "New Bollywood",
+  const generateTopAlbumData = async () => {
+    const data = await fetchTopAlbum();
+    setTopAlbumData(data);
   };
+  useEffect(() => {
+    generateTopAlbumData();
+  }, []);
 
   return (
     <div className="App">
       <Navbar />
       <HeroSection />
-      <Card data={data} />
+      <div className="cardContainer">
+        {topAlbumData.map((item) => {
+          return <Card data={item} type="album" />;
+        })}
+      </div>
     </div>
   );
 }

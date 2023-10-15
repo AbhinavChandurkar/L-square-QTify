@@ -27,3 +27,9 @@ body {
   color: var(--color-white);
   overflow-x: hidden;
 }
+
+img,
+svg {
+  display: bloack;
+  max-width: 100%;
+}
