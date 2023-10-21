@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Section.module.css";
 import { Box, CircularProgress } from "@mui/material";
 import Card from "../Card/Card";
@@ -13,15 +13,19 @@ const Section = ({
   handleChange = null,
   filteredDataValues = [],
   filteredData = null,
-  toggle = false,
-  handleToggle = null,
 }) => {
+  const [toggle, setToggle] = useState(true);
+
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <div>
       <div className={styles.header}>
         <h3>{title}</h3>
         <h4 className={styles.toggleText} onClick={handleToggle}>
-          {toggle ? "Collapse All" : "Show All"}
+          {!toggle ? "Collapse All" : "Show All"}
         </h4>
       </div>
       {type === "song" ? (
@@ -39,10 +43,10 @@ const Section = ({
         </Box>
       ) : (
         <div className={styles.cardsWrapper}>
-          {toggle ? (
+          {!toggle ? (
             <div className={styles.wrapper}>
               {filteredDataValues.map((item) => (
-                <Card data={item} type={type} />
+                <Card data={item} type={type} key={item.id} />
               ))}
             </div>
           ) : (

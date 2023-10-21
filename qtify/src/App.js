@@ -30,6 +30,10 @@ function App() {
       key = "rock";
     } else if (value === 2) {
       key = "pop";
+    } else if (value === 3) {
+      key = "jazz";
+    } else if (value === 4) {
+      key = "blues";
     }
     const res = songsData.filter((item) => item.genre.key === key);
     filteredData(res);
@@ -59,6 +63,7 @@ function App() {
     try {
       const res = await fetchTopAlbum();
       setData(res);
+
       const newAlbum = await fetchNewAlbum();
       setNewAlbumData(newAlbum);
     } catch (error) {
@@ -81,12 +86,16 @@ function App() {
           type="album"
           title="Top Albums"
           filteredDataValues={data}
+          handleToggle={handleToggle}
+          toggle={toggle}
         />
         <Section
           data={newAlbumData}
           type="album"
           title="New Albums"
-          filteredDataValues={data}
+          filteredDataValues={newAlbumData}
+          handleToggle={handleToggle}
+          toggle={toggle}
         />
         <Section
           data={songsData}
