@@ -1,0 +1,47 @@
+.accordionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.customAccordion {
+  width: 50%;
+  background-color: var(--color-black) !important;
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
+
+.customAccordionSummary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: 1px solid var(--color-white) !important;
+  border-radius: 5px !important;
+}
+
+.customAccordionDetails {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-white) !important;
+  border-radius: 0 0 5px 5px;
+}
+
+.customTypography {
+  color: var(--color-white);
+}
+
+.customExpandIcon {
+  color: var(--color-primary);
+}
+
+.customDropdownTypography {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.header {
+  font-weight: bolder;
+  margin: 10px;
+  font-size: 2em;
+  line-height: 1.2;
+}

@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar/Navbar";
 import React, { useEffect, useState } from "react";
 import { fetchTopAlbum, fetchNewAlbum, fetchSongs } from "./api/api";
 import Section from "./components/Section/Section";
+import BasicAccordion from "./components/Accordian/Accordian.jsx";
+import { faqs } from "./constants/faq";
 
 function App() {
   const [data, setData] = useState([]);
@@ -109,6 +111,7 @@ function App() {
           toggle={toggle}
         />
       </div>
+      <BasicAccordion faqs={faqs} />
     </div>
   );
 }
